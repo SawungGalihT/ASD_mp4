@@ -131,8 +131,18 @@ while True:
 
     elif pilih == "4":
         print("Menu Ubah Data: (Belum Diimplementasikan)")
-        # Implementasi menu ubah data
-
+        bulan_update = str(input("Masukkan Nama Bulan yang ingin Diperbarui : "))
+        tahun_update = int(input("Masukkan Tahun yang ingin diperbarui : "))
+        if bukukas.dapatkan_data_kas(bulan_update, tahun_update):
+            pemasukan_baru = int(input("Masukkan Jumlah Pemasukan Baru : "))
+            pengeluaran_baru = int(input("Masukkan Jumlah Pengeluaran Baru : "))
+            saldo_baru = int(input("Masukkan Saldo Baru : "))
+            if bukukas.update_data_kas(bulan_update, tahun_update, pemasukan_baru, pengeluaran_baru, saldo_baru):
+                print("Data kas berhasil diperbarui.")
+            else:
+                print("Gagal memperbarui data.")
+        else:
+            print("Data tidak ditemukan.")
     elif pilih == "5":
         bukukas.sorting()
 
